@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Calculadora</h1>
-    <form method="post" action="/calcular">
-        <label for="num1">Número 1</label>
-        <input type="number" name="num1" required>
+    <form action="/calculadora" method="POST">
+        <label for="operacion">Operación:</label>
+        <select id="operacion" name="operacion">
+            <option value="suma">Suma</option>
+            <option value="resta">Resta</option>
+            <option value="multiplicacion">Multiplicación</option>
+            <option value="division">División</option>
+        </select>
         <br>
-        <label for="num2">Número 2</label>
-        <input type="number" name="num2" required>
+        <label for="num1">Número 1:</label>
+        <input type="text" id="num1" name="num1">
         <br>
-        <div class="seccion">
-            <h2>Operaciones</h2>
-            <button type="submit" name="operacion" value="sumar">Sumar</button>
-            <button type="submit" name="operacion" value="restar">Restar</button>
-            <button type="submit" name="operacion" value="multiplicar">Multiplicar</button>
-            <button type="submit" name="operacion" value="dividir">Dividir</button>
-        </div>
-    </form> <!-- Aquí cerré el formulario de operaciones -->
+        <label for="num2">Número 2:</label>
+        <input type="text" id="num2" name="num2">
+        <br>
+        <button type="submit">Calcular</button>
+    </form>
 
-    {% if resultado %}
-        <p id="resultado">Resultado: {{ resultado }}</p>
-    {% endif %}
+    <div class="resultado">
+        <h2>Resultado:</h2>
+        <p>{{ resultado }}</p>
+    </div>
 </body>
 </html>
