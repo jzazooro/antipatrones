@@ -1,40 +1,30 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang = "es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora con Flask</title>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <title>Calculadora</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <h1>Calculadora</h1>
-    <form method="post" action="/calcular">
-        <label for="num1">Número 1:</label>
-        <input type="number" name="num1" required>
+    <form method ="post" action="/calcular">
+        <label for = "num1">Número 1</label>
+        <input type = "number" name = "num1" required>
         <br>
-        <label for="num2">Número 2:</label>
-        <input type="number" name="num2" required>
+        <label for = "num2">Número 2</label>
+        <input type = "number" name = "num2" required>
         <br>
         <div class="seccion">
-            <h2>Operaciones Aritméticas</h2>
-            <button type="submit" name="operacion" value="sumar">Sumar</button>
-            <button type="submit" name="operacion" value="restar">Restar</button>
-            <button type="submit" name="operacion" value="multiplicar">Multiplicar</button>
-            <button type="submit" name="operacion" value="dividir">Dividir</button>
+            <h2>Operaciones</h2>
+            <button type = "submit" name = "operacion" value = "sumar">Sumar</button>
+            <button type = "submit" name = "operacion" value = "restar">Restar</button>
+            <button type = "submit" name = "operacion" value = "multiplicar">Multiplicar</button>
+            <button type = "submit" name = "operacion" value = "dividir">Dividir</button>
         </div>
 
-        <div class="seccion">
-            <h2>Operaciones Exponenciales</h2>
-            <button type="submit" name="operacion" value="potencia">Potencia</button>
-            <button type="submit" name="operacion" value="raiz_cuadrada">Raíz Cuadrada</button>
-        </div>
-
-        <div class="seccion">
-            <h2>Otras Operaciones</h2>
-            <button type="submit" name="operacion" value="factorial">Factorial</button>
-        </div>
-    </form>
-
+    <form>
+    
     {% if resultado %}
         <p id="resultado">Resultado: {{ resultado }}</p>
     {% endif %}
