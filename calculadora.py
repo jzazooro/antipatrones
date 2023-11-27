@@ -21,3 +21,6 @@ def calcular(operacion, num1, num2):
             return num1 / num2
     else:
         return 'Operación no válida'
+
+if __name__ == '__main__':
+    app.run(debug=True)
