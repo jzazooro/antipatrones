@@ -7,20 +7,26 @@ def index():
     return render_template('index.html')
 
 @app.route('/calculadora', methods=['POST'])
-def calcular(operacion, num1, num2): 
+def calcular():
+    operacion = request.form['operacion']
+    num1 = float(request.form['num1'])
+    num2 = float(request.form['num2'])
+
     if operacion == 'suma':
-        return num1 + num2
-    if operacion == 'resta':
-        return num1 - num2
-    if operacion == 'multiplicacion':
-        return num1 * num2
-    if operacion == 'division':
+        resultado = num1 + num2
+    elif operacion == 'resta':
+        resultado = num1 - num2
+    elif operacion == 'multiplicacion':
+        resultado = num1 * num2
+    elif operacion == 'division':
         if num2 == 0:
             return 'No se puede dividir entre cero'
-        if num2 != 0:
-            return num1 / num2
+        else:
+            resultado = num1 / num2
     else:
         return 'Operación no válida'
+
+    return render_template('index.html', resultado=resultado)
 
 if __name__ == '__main__':
     app.run(debug=True)
