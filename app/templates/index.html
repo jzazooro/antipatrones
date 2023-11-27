@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html lang = "es">
+<html lang="es">
 <head>
-    <meta charset = "UTF-8">
-    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <h1>Calculadora</h1>
-    <form method ="post" action="/calcular">
-        <label for = "num1">Número 1</label>
-        <input type = "number" name = "num1" required>
+    <form method="post" action="/calcular">
+        <label for="num1">Número 1</label>
+        <input type="number" name="num1" required>
         <br>
-        <label for = "num2">Número 2</label>
-        <input type = "number" name = "num2" required>
+        <label for="num2">Número 2</label>
+        <input type="number" name="num2" required>
         <br>
         <div class="seccion">
             <h2>Operaciones</h2>
-            <button type = "submit" name = "operacion" value = "sumar">Sumar</button>
-            <button type = "submit" name = "operacion" value = "restar">Restar</button>
-            <button type = "submit" name = "operacion" value = "multiplicar">Multiplicar</button>
-            <button type = "submit" name = "operacion" value = "dividir">Dividir</button>
+            <button type="submit" name="operacion" value="sumar">Sumar</button>
+            <button type="submit" name="operacion" value="restar">Restar</button>
+            <button type="submit" name="operacion" value="multiplicar">Multiplicar</button>
+            <button type="submit" name="operacion" value="dividir">Dividir</button>
         </div>
+    </form> <!-- Aquí cerré el formulario de operaciones -->
 
-    <form>
-    
     {% if resultado %}
         <p id="resultado">Resultado: {{ resultado }}</p>
     {% endif %}
